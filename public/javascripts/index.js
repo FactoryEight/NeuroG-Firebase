@@ -136,7 +136,7 @@ $(document).ready(function () {
           if (!obj.timestamp || !obj.heartRate) {
             return;
           }
-          timeData.push(obj.timestamp);
+          timeData.push(Date(obj.timestamp * 1000));
           heartRateData.push(obj.heartRate);
           if (obj.heartRate < 90) {
             $('#HeartRateDescription').text("Heart Rate Normal");
@@ -200,10 +200,10 @@ $(document).ready(function () {
           if (obj.meditation) {
             meditationData.push(obj.meditation);
             if (obj.meditation < 20) {
-              $('#MeditationDescription').text("Un attentive");
+              $('#MeditationDescription').text("No Meditation");
               $('#MeditationDescription').css('color', 'red')
             } else if (obj.meditation < 70) {
-              $('#MeditationDescription').text("Slightly Attentive");
+              $('#MeditationDescription').text("Partial Meditation");
               $('#MeditationDescription').css('color', 'orange')
             } else if (obj.meditation < 100) {
               $('#MeditationDescription').text("Full Meditation");
